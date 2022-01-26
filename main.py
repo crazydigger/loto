@@ -9,8 +9,8 @@ class Player:
         self.card = []
         # имя игрока
         self.name = n
-        #победитель?
-        self.winner=False
+        # победитель?
+        self.winner = True
 
         for j in range(3):
             for i in range(cells):
@@ -20,6 +20,7 @@ class Player:
         card_temp = []
         for c in self.card:
             if c == str(num):
+                print('found', num)
                 card_temp.append('--')
             else:
                 card_temp.append(c)
@@ -32,19 +33,20 @@ class Player:
             for c in self.card:
                 line = line + '!' + c + '!'
             print(line)
-    def iswinner(self):
 
+    def iswinner(self):
+        self.winner = True
         for c in self.card:
-            if c !='--':
-                self.winner=False
+            if c != '--':
+                self.winner = False
                 return self.winner
 
 
 # число игроков
-#бочки
+# бочки
 markers = []
 for i in range(90):
-    markers.append(str(random.randint(0,100)))
+    markers.append(str(random.randint(0, 100)))
     print(markers)
 num = input('введите число игроков не больше 2:')
 while int(num) <= 2:
@@ -56,13 +58,20 @@ while int(num) <= 2:
         p = Player(5, name)
         players.append((p))
         p.show()
+        count = 0
+        all = len(markers)
         for m in markers:
-            print('бочка номер',m)
-        num = input('какую цифру закрыть?')
+            count = count+12
+            print('бочка номер', m, count, '/', all)
+            for p in players:
+                p.show()
+                num = input('какую цифру закрыть:') or m
 
-        p.close(int(num))
+                p.close(int(num))
+                print(m, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+                p.show()
         if p.iswinner():
-            print('победил', p.name)
+            print('победилигрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
 
             print('введена некорректная цифра')
         p.show()
@@ -70,9 +79,12 @@ while int(num) <= 2:
         print(name)
         break
         for m in Markers:
-            print('бочка номер',m)
+            print('бочка номер', m)
             for p in Players:
+                print('игрок', p.name)
                 num = input('какую цифру закрыть?')
+                if p.name == 'comp':
+                    p.close(int(m))
                 p.close(int(num))
 
                 p.show()
