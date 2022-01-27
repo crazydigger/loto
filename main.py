@@ -10,7 +10,7 @@ class Player:
         # имя игрока
         self.name = n
         # победитель?
-        self.winner = True
+        self.winner = False
 
         for j in range(3):
             for i in range(cells):
@@ -48,17 +48,17 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     print(markers)
-num = input('введите число игроков 0- 2:')
+num = input('введите число игроков 0- [2]:') or '2'
 while int(num) <= 2:
     players = []
     for i in range(int(num)):
-        name = input('введите имя игрока' + str(i) + 'или <comp>если играет компьютер')
+        name = input('введите имя игрока' + str(i) + 'или [comp]если играет компьютер') or 'comp'
     print('минимальное количество - 2 игрока!')
 
     p = Player(5, name)
     players.append((p))
     p.show()
-    count = 02
+    count = 0.
     all = len(markers)
     for m in markers:
         count = count+1
@@ -68,9 +68,9 @@ while int(num) <= 2:
             print(p.winner)
 
         p.show()
-    num = input('какую цифру закрыть:') or m
+    num = input('какую цифру закрыть:')
 
-    p.close(int(num))
+    p.close(int(m))
     print(m, p.name,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     p.show()
     if p.iswinner():
@@ -81,11 +81,11 @@ while int(num) <= 2:
     if name == 'comp':
         print(name)
 
-        for m in Markers:
+        for m in markers:
             print('бочка номер', m)
-            for p in Players:
+            for p in players:
                 print('игрок', p.name)
-                num = input('какую цифру закрыть?')
+                num = input('какую цифру закрыть?')or m
                 if p.name == 'comp':
                     p.close(int(m))
                 p.close(int(num))
