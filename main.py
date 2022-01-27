@@ -48,36 +48,37 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     print(markers)
-num = input('введите число игроков не больше 2:')
+num = input('введите число игроков 0- 2:')
 while int(num) <= 2:
-
-    print('минимальное количество - 2 игрока!')
     players = []
     for i in range(int(num)):
         name = input('введите имя игрока' + str(i) + 'или <comp>если играет компьютер')
-        p = Player(5, name)
-        players.append((p))
-        p.show()
-        count = 0
-        all = len(markers)
-        for m in markers:
-            count = count+12
-            print('бочка номер', m, count, '/', all)
-            for p in players:
-                p.show()
-                num = input('какую цифру закрыть:') or m
+    print('минимальное количество - 2 игрока!')
 
-                p.close(int(num))
-                print(m, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-                p.show()
-        if p.iswinner():
-            print('победилигрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
+    p = Player(5, name)
+    players.append((p))
+    p.show()
+    count = 0
+    all = len(markers)
+    for m in markers:
+        count = count+1
+        print('бочка номер', m, count, 'from', all)
+    for p in players:
 
-            print('введена некорректная цифра')
         p.show()
+        num = input('какую цифру закрыть:') or m
+
+        p.close(int(num))
+        print(m, p.name,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        p.show()
+if p.iswinner():
+    print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
+
+    print('введена некорректная цифра')
+    p.show()
     if name == 'comp':
         print(name)
-        break
+
         for m in Markers:
             print('бочка номер', m)
             for p in Players:
