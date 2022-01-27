@@ -20,7 +20,7 @@ class Player:
         card_temp = []
         for c in self.card:
             if c == str(num):
-                print('found', num)
+                #print('found', num)
                 card_temp.append('--')
             else:
                 card_temp.append(c)
@@ -63,16 +63,17 @@ while int(num) <= 2:
     for m in markers:
         count = count+1
         print('бочка номер', m, count, 'from', all)
-    for p in players:
+        for p in players:
+            print('игро...........................',p.name)
 
         p.show()
-        num = input('какую цифру закрыть:') or m
+    num = input('какую цифру закрыть:') or m
 
-        p.close(int(num))
-        print(m, p.name,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        p.show()
-if p.iswinner():
-    print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
+    p.close(int(num))
+    print(m, p.name,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    p.show()
+    if p.iswinner():
+        print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
 
     print('введена некорректная цифра')
     p.show()
