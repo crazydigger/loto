@@ -64,7 +64,8 @@ while int(num) <= 2:
         count = count+1
         print('бочка номер', m, count, 'from', all)
         for p in players:
-            print('игро...........................',p.name)
+            print('игрок...........................',p.name)
+            print(p.winner)
 
         p.show()
     num = input('какую цифру закрыть:') or m
