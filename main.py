@@ -58,7 +58,7 @@ while int(num) <= 2:
     p = Player(5, name)
     players.append((p))
     p.show()
-    count = 0
+    count = 02
     all = len(markers)
     for m in markers:
         count = count+1
