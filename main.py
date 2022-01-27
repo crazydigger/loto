@@ -30,16 +30,20 @@ class Player:
         print('игрок:', self.name)
         for j in range(3):
             line = ''
+            line2=''
             for c in self.card:
                 line = line + '!' + c + '!'
+                line2=line2 + '+' + '--' + '+'
             print(line)
+            #print('+'-'*len(line)+'+')
+            #print(line2)
 
     def iswinner(self):
         self.winner = True
         for c in self.card:
             if c != '--':
                 self.winner = False
-                return self.winner
+            return self.winner
 
 
 # число игроков
@@ -62,13 +66,13 @@ while int(num) <= 2:
     all = len(markers)
     for m in markers:
         count = count+1
-        print('бочка номер', m, count, 'from', all)
+        print('бочка номер:'+str(m)+str(count)+'from'+str(all))
         for p in players:
             print('игрок...........................',p.name)
             print(p.winner)
 
         p.show()
-    num = input('какую цифру закрыть:')
+    num = input('закрыть цифру закрыть:<Enter>=['+str(m)+']') or m
 
     p.close(int(m))
     print(m, p.name,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
@@ -85,7 +89,7 @@ while int(num) <= 2:
             print('бочка номер', m)
             for p in players:
                 print('игрок', p.name)
-                num = input('какую цифру закрыть?')or m
+                num = input('какую цифру закрыть<Wnter>=?['+str(m)+']')or m
                 if p.name == 'comp':
                     p.close(int(m))
                 p.close(int(num))
