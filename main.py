@@ -48,11 +48,11 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     print(markers)
-num = input('введите число игроков 0- [2]:') or '2'
+num = input('введите число игроков 0- <Enter>=[2]:') or '2'
 while int(num) <= 2:
     players = []
     for i in range(int(num)):
-        name = input('введите имя игрока' + str(i) + 'или [comp]если играет компьютер') or 'comp'
+        name = input('введите имя игрока' + str(i) + 'или <Enter>=[comp]') or 'comp'
     print('минимальное количество - 2 игрока!')
 
     p = Player(5, name)
