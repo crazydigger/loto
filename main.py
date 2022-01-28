@@ -53,28 +53,28 @@ for i in range(90):
     markers.append(str(random.randint(0, 100)))
     #print(markers)
 num = input('введите число игроков or <Enter>=[2]:') or '2'
-while int(num) <= 2:
-    players = []
-    for i in range(int(num)):
+#while int(num) <= 2:
+players = []
+for i in range(int(num)):
         name = input('введите имя игрока' + str(i) + 'или <Enter>=[comp'+ str(i)+']') or 'comp'+str(i)
-    print('минимальное количество - 2 игрока!')
 
-    p = Player(5, name)
-    players.append((p))
+
+        p = Player(5, name)
+        players.append((p))
+    #p.show()
+count = 0
+all = len(markers)
+print(markers)
+for m in markers:
+    print('!!!!!!!!!!!!!!!!!!!00000',m,all)
+    count = count+1
+    print('игровой прогресс1..........'+str(count)+'from:::::::::::'+'всего осталось'+str(all-count))
+    print('бочка номер:............'+str(m))
+    for p in players:
+        print('игрок...........................',p.name)
+        print(p.winner)
+
     p.show()
-    count = 0
-    all = len(markers)
-    print(markers)
-    for m in markers:
-        print('!!!!!!!!!!!!!!!!!!!00000',m,all)
-        count = count+1
-        print('игровой прогресс1..........'+str(count)+'from:::::::::::'+'всего осталось'+str(all-count))
-        print('бочка номер:............'+str(m))
-        for p in players:
-            print('игрок...........................',p.name)
-            print(p.winner)
-
-        p.show()
     print('игровой прогресс2..........' + str(count) + 'from:::::::' + str(all) + str(all - count))
 
     #num = input('закрыть цифру закрыть:<Enter>=['+str(m)+']') or m
