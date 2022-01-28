@@ -51,7 +51,7 @@ class Player:
 markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
-    print(markers)
+    #print(markers)
 num = input('введите число игроков 0- <Enter>=[2]:') or '2'
 while int(num) <= 2:
     players = []
@@ -65,8 +65,10 @@ while int(num) <= 2:
     count = 0.
     all = len(markers)
     for m in markers:
+        print('!!!!!!!!!!!!!!!!!!!',m,all)
         count = count+1
-        print('бочка номер:'+str(m)+str(count)+'from'+str(all))
+        print('игровой прогресс..........'+str(count)+'from'+'всего осталось'+str(all-count))
+        print('бочка номер:'+str(m)+'номер')
         for p in players:
             print('игрок...........................',p.name)
             print(p.winner)
@@ -89,7 +91,7 @@ while int(num) <= 2:
             print('бочка номер', m)
             for p in players:
                 print('игрок', p.name)
-                num = input('какую цифру закрыть<Wnter>=?['+str(m)+']')or m
+                num = input('какую цифру закрыть<Enter>=?['+str(m)+']')or m
                 if p.name == 'comp':
                     p.close(int(m))
                 p.close(int(num))
