@@ -52,7 +52,7 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     #print(markers)
-num = input('введите число игроков 0- <Enter>=[2]:') or '2'
+num = input('введите число игроков or <Enter>=[2]:') or '2'
 while int(num) <= 2:
     players = []
     for i in range(int(num)):
