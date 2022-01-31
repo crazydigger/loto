@@ -120,4 +120,4 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(len(self.card.history), 0)
         self.assertEqual(self.bill.history, [])
         self.assertFalse(self.test_iswinner())
-        assert self.w
+        assert self.
