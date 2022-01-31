@@ -1,4 +1,5 @@
 import random
+import unittest
 
 
 class Player:
@@ -100,3 +101,14 @@ for m in markers:
                 p.close(int(num))
 
                 p.show()
+
+class TestPlayer(unittest.TestCase):
+    player
+    def setUp(self) -> None:
+        self.player=Player('comp',5)
+
+    def test_init(self):
+        self.assertEqual(self.bill.money, 0)
+        self.assertEqual(len(self.card.history), 0)
+        self.assertEqual(self.bill.history, [])
+        self.assertFalse(self.bill.history)
