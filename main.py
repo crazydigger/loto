@@ -53,21 +53,27 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     #print(markers)
-num = input('введите число игроков or <Enter>=[2]:') or '2'
+    if __name__=="__main__":
+        num = input('введите число игроков or <Enter>=[2]:') or '2'
+    else:
+        num=2
 #while int(num) <= 2:
 players = []
 for i in range(int(num)):
+    if __name__ == "__main__":
         name = input('введите имя игрока' + str(i) + 'или <Enter>=[comp'+ str(i)+']') or 'comp'+str(i)
+    else:
+        name='comp'+str(i)
 
 
-        p = Player(5, name)
-        players.append((p))
+    p = Player(5, name)
+    players.append((p))
     #p.show()
 count = 0
 all = len(markers)
 print(markers)
 for m in markers:
-    print('!!!!!!!!!!!!!!!!!!!00000',m,all)
+    #print('!!!!!!!!!!!!!!!!!!!00000',m,all)
     count = count+1
     print('игровой прогресс1..........'+str(count)+'from:::::::::::'+'всего осталось'+str(all-count))
     print('бочка номер:............'+str(m))
