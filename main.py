@@ -92,7 +92,7 @@ for m in markers:
     if p.iswinner():
         print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
 
-    print('введена некорректная цифра')
+    #print('введена некорректная цифра')
     p.show()
     if name == 'comp':
         print(name)
@@ -101,7 +101,7 @@ for m in markers:
             print('бочка номер', m)
             for p in players:
                 print('игрок in loop', p.name)
-                #num = input('какую цифру закрыть<Enter>=?['+str(m)+']') or m
+                num = input('какую цифру закрыть<Enter>=?['+str(m)+']') or m
                 if p.name == 'comp':
                     p.close(int(m))
                 p.close(int(num))
@@ -109,12 +109,15 @@ for m in markers:
                 p.show()
 
 class TestPlayer(unittest.TestCase):
-    player
+    self.player
     def setUp(self) -> None:
         self.player=Player('comp',5)
+    def test_iswinner(self):
+        assertF
 
     def test_init(self):
-        self.assertEqual(self.bill.money, 0)
+        assert 'comp' in self.name
         self.assertEqual(len(self.card.history), 0)
         self.assertEqual(self.bill.history, [])
-        self.assertFalse(self.bill.history)
+        self.assertFalse(self.test_iswinner())
+        assert self.w
