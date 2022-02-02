@@ -1,4 +1,5 @@
 import random
+import unittest
 
 
 class Player:
@@ -52,21 +53,27 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     #print(markers)
-num = input('введите число игроков or <Enter>=[2]:') or '2'
+    if __name__=="__main__":
+        num = input('введите число игроков or <Enter>=[2]:') or '2'
+    else:
+        num=2
 #while int(num) <= 2:
 players = []
 for i in range(int(num)):
+    if __name__ == "__main__":
         name = input('введите имя игрока' + str(i) + 'или <Enter>=[comp'+ str(i)+']') or 'comp'+str(i)
+    else:
+        name='comp'+str(i)
 
 
-        p = Player(5, name)
-        players.append((p))
+    p = Player(5, name)
+    players.append((p))
     #p.show()
 count = 0
 all = len(markers)
 print(markers)
 for m in markers:
-    print('!!!!!!!!!!!!!!!!!!!00000',m,all)
+    #print('!!!!!!!!!!!!!!!!!!!00000',m,all)
     count = count+1
     print('игровой прогресс1..........'+str(count)+'from:::::::::::'+'всего осталось'+str(all-count))
     print('бочка номер:............'+str(m))
@@ -85,7 +92,7 @@ for m in markers:
     if p.iswinner():
         print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
 
-    print('введена некорректная цифра')
+    #print('введена некорректная цифра')
     p.show()
     if name == 'comp':
         print(name)
@@ -94,9 +101,23 @@ for m in markers:
             print('бочка номер', m)
             for p in players:
                 print('игрок in loop', p.name)
-                #num = input('какую цифру закрыть<Enter>=?['+str(m)+']') or m
+                num = input('какую цифру закрыть<Enter>=?['+str(m)+']') or m
                 if p.name == 'comp':
                     p.close(int(m))
                 p.close(int(num))
 
                 p.show()
+
+class TestPlayer(unittest.TestCase):
+    self.player
+    def setUp(self) -> None:
+        self.player=Player('comp',5)
+    def test_iswinner(self):
+        assertF
+
+    def test_init(self):
+        assert 'comp' in self.name
+        self.assertEqual(len(self.card.history), 0)
+        self.assertEqual(self.bill.history, [])
+        self.assertFalse(self.test_iswinner())
+        assert self.
