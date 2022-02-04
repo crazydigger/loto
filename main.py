@@ -3,19 +3,20 @@ import random
 
 class Player:
     def __eq__(self, other):
-        return self.get_number_of_closed()== other.get_number_of_closed()
+        return self.get_number_of_closed() == other.get_number_of_closed()
 
     def get_number_of_closed(self):
-        count=0
+        count = 0
         for c in self.card:
             if c == '--':
-                count+=1
+                count += 1
 
         return count
+
     def __str__(self):
         return self.name
-    def __init__(self, cells, n):
 
+    def __init__(self, cells, n):
 
         self.card = []
         # имя игрока
@@ -31,7 +32,7 @@ class Player:
         card_temp = []
         for c in self.card:
             if c == str(num):
-                #print('found', num)
+                # print('found', num)
                 card_temp.append('--')
             else:
                 card_temp.append(c)
@@ -41,13 +42,13 @@ class Player:
         print('игрок:', self.name)
         for j in range(3):
             line = ''
-            line2=''
+            line2 = ''
             for c in self.card:
                 line = line + '!' + c + '!'
-                line2=line2 + '+' + '--' + '+'
+                line2 = line2 + '+' + '--' + '+'
             print(line)
-            #print('+'-'*len(line)+'+')
-            #print(line2)
+            # print('+'-'*len(line)+'+')
+            # print(line2)
 
     def iswinner(self):
         self.winner = True
@@ -62,42 +63,41 @@ class Player:
 markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
-    #print(markers)
-#num = input('введите число игроков or <Enter>=[2]:') or '2'
-num='2'
-#while int(num) <= 2:
+    # print(markers)
+# num = input('введите число игроков or <Enter>=[2]:') or '2'
+num = '2'
+# while int(num) <= 2:
 players = []
 for i in range(int(num)):
-        name = 'comp'+str(i)
+    name = 'comp' + str(i)
 
-
-        p = Player(5, name)
-        players.append((p))
-    #p.show()
+    p = Player(5, name)
+    players.append((p))
+# p.show()
 count = 0
 all = len(markers)
 print(markers)
 for m in markers:
-    print('!!!!!!!!!!!!!!!!!!!00000',m,all)
-    count = count+1
-    print('игровой прогресс1..........'+str(count)+'from:::::::::::'+'всего осталось'+str(all-count))
-    print('бочка номер:............'+str(m))
+    print('!!!!!!!!!!!!!!!!!!!00000', m, all)
+    count = count + 1
+    print('игровой прогресс1..........' + str(count) + 'from:::::::::::' + 'всего осталось' + str(all - count))
+    print('бочка номер:............' + str(m))
     for p in players:
-        print('игрок...........................',p.name)
+        print('игрок...........................', p.name)
         print(p.winner)
 
     p.show()
     print('игровой прогресс2..........' + str(count) + 'from:::::::' + str(all) + str(all - count))
 
-    #num = input('закрыть цифру закрыть:<Enter>=['+str(m)+']') or m
+    # num = input('закрыть цифру закрыть:<Enter>=['+str(m)+']') or m
 
     p.close(int(m))
-    print(m, p.name,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(m, p.name, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     p.show()
     if p.iswinner():
         print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
 
-    #print('введена некорректная цифра')
+    # print('введена некорректная цифра')
     p.show()
     if name == 'comp':
         print(name)
@@ -106,14 +106,14 @@ for m in markers:
             print('бочка номер', m)
             for p in players:
                 print('игрок in loop', p.name)
-                #num = input('какую цифру закрыть<Enter>=?['+str(m)+']') or m
+                # num = input('какую цифру закрыть<Enter>=?['+str(m)+']') or m
                 if p.name == 'comp':
                     p.close(int(m))
                 p.close(int(num))
 
                 p.show()
-p1= Player(5,'comp1')
-p2= Player(5,'comp2')
-print('первый класс',p1)
-print('второй класс',p2)
-print ('равенство',p1==p2)
+p1 = Player(5, 'comp1')
+p2 = Player(5, 'comp2')
+print('первый класс', p1)
+print('второй класс', p2)
+print('равенство', p1 == p2)
