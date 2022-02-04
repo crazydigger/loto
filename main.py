@@ -2,7 +2,8 @@ import random
 
 
 class Player:
-
+    def __str__(self):
+        return self.name
     def __init__(self, cells, n):
         # карточка игрока
 
@@ -100,3 +101,5 @@ for m in markers:
                 p.close(int(num))
 
                 p.show()
+p1= Player(5,'comp1')
+print('''''первый класс',p1)
