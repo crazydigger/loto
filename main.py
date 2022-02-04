@@ -57,7 +57,7 @@ num = input('введите число игроков or <Enter>=[2]:') or '2'
 #while int(num) <= 2:
 players = []
 for i in range(int(num)):
-        name = input('введите имя игрока' + str(i) + 'или <Enter>=[comp'+ str(i)+']') or 'comp'+str(i)
+        name = 'comp'+str(i)
 
 
         p = Player(5, name)
@@ -86,7 +86,7 @@ for m in markers:
     if p.iswinner():
         print('победил игрок!!!!!!!!!!!!!!!!!!!!!!!!!!!!', p.name)
 
-    print('введена некорректная цифра')
+    #print('введена некорректная цифра')
     p.show()
     if name == 'comp':
         print(name)
@@ -102,4 +102,6 @@ for m in markers:
 
                 p.show()
 p1= Player(5,'comp1')
-print('''''первый класс',p1)
+p2= Player(5,'comp2')
+print('первый класс',p1)
+print('второй класс',p2)
