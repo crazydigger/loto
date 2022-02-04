@@ -2,10 +2,20 @@ import random
 
 
 class Player:
+    def __eq__(self, other):
+        return self.get_number_of_closed()== other.get_number_of_closed()
+
+    def get_number_of_closed(self):
+        count=0
+        for c in self.card:
+            if c == '--':
+                count+=1
+
+        return count
     def __str__(self):
         return self.name
     def __init__(self, cells, n):
-        # карточка игрока
+
 
         self.card = []
         # имя игрока
@@ -53,7 +63,8 @@ markers = []
 for i in range(90):
     markers.append(str(random.randint(0, 100)))
     #print(markers)
-num = input('введите число игроков or <Enter>=[2]:') or '2'
+#num = input('введите число игроков or <Enter>=[2]:') or '2'
+num='2'
 #while int(num) <= 2:
 players = []
 for i in range(int(num)):
@@ -105,3 +116,4 @@ p1= Player(5,'comp1')
 p2= Player(5,'comp2')
 print('первый класс',p1)
 print('второй класс',p2)
+print ('равенство',p1==p2)
